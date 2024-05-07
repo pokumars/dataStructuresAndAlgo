@@ -1,6 +1,7 @@
-const Node = require("./Node");
+const Node = require('./Node');
 
 class LinkedList {
+  
   constructor() {
     this.head = null;
   }
@@ -13,6 +14,22 @@ class LinkedList {
       this.head.setNextNode(currentHead);
     }
   }
+
+  addToTail(data) {
+    let tail =this.head;
+    if(!tail) {
+      //Means that tail & head have no value so they dont exist. So the thing  we are adding is actually the head and tail.
+      this.head=new Node(data);
+    } else {
+      while(tail.getNextNode()){
+        tail = tail.getNextNode();
+      }
+      tail.setNextNode(new Node(data))
+    }
+
+  }
+
+
 }
 
 module.exports = LinkedList;
