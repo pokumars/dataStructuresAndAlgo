@@ -16,20 +16,26 @@ class LinkedList {
   }
 
   addToTail(data) {
-    let tail =this.head;
-    if(!tail) {
-      //Means that tail & head have no value so they dont exist. So the thing  we are adding is actually the head and tail.
-      this.head=new Node(data);
+    let tail = this.head;
+    if (!tail) {
+      this.head = new Node(data);
     } else {
-      while(tail.getNextNode()){
+      while (tail.getNextNode() !== null) {
         tail = tail.getNextNode();
       }
-      tail.setNextNode(new Node(data))
+      tail.setNextNode(new Node(data));
     }
-
   }
 
+  removeHead () {
+    const removedHead = this.head;
+    
+    if(!removedHead) return
+    const newHead = this.head.getNextNode()
+    this.head = newHead;
 
+    return removedHead.data;
+  }
 }
 
 module.exports = LinkedList;
