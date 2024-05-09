@@ -46,10 +46,42 @@ class LinkedList {
     console.log(output);
   }
 
-  removeSpecificElement() {
+  /**
+   * @param {*} victim The victim of the deletion. the data of the thing to delete
+   * @returns 
+   */
+  removeSpecificElement(victim) {
     // empty LL
-    // not empty
-    // not found
+    if (this.head === null) return -1
+    // if it is head
+    if (this.head === victim) {
+      this.removeHead();
+    }
+
+    let currentNode = this.head;
+    // find and delete         
+    while (currentNode.getNextNode()) {
+      console.log('in while loop', currentNode.data);
+      if (victim === currentNode.getNextNode().data) {
+        const foundVictim = currentNode.getNextNode();
+        const afterVictim = foundVictim.getNextNode();
+
+        // make prev's new next to point to victim's next
+        currentNode.setNextNode(afterVictim);
+        foundVictim.setNextNode(null);
+
+        console.log(foundVictim);
+        return foundVictim;
+      }
+
+      currentNode = currentNode.getNextNode();
+    }
+
+    // nothing was found
+    if (currentNode.getNextNode() === null) {
+      console.log('nothing was found')
+      return -1
+    }
   }
 
 }
@@ -77,3 +109,12 @@ module.exports = LinkedList;
 
 // seasons.removeHead();
 // seasons.printList();
+
+// seasons.removeSpecificElement('fall');
+// seasons.removeSpecificElement('fallow');
+// seasons.printList();
+
+const emptyList = new LinkedList();
+emptyList.printList();
+emptyList.removeSpecificElement('fallow')
+emptyList.printList();
