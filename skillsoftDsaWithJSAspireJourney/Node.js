@@ -17,20 +17,20 @@ class Node {
   }
 }
 
-var strawberryNode = new Node('Berry Tasty');
-var vanillaNode = new Node('Vanilla');
-var coconutNode = new Node('Coconuts for Coconut');
+// var strawberryNode = new Node('Berry Tasty');
+// var vanillaNode = new Node('Vanilla');
+// var coconutNode = new Node('Coconuts for Coconut');
 
-vanillaNode.setNextNode(strawberryNode);
-strawberryNode.setNextNode(coconutNode);
+// vanillaNode.setNextNode(strawberryNode);
+// strawberryNode.setNextNode(coconutNode);
 
-let currentNode = vanillaNode;
+// let currentNode = vanillaNode;
 
- while (currentNode !== null) {
-  console.log(currentNode.data);
+//  while (currentNode !== null) {
+//   console.log(currentNode.data);
 
-  currentNode= currentNode.next
- }
+//   currentNode= currentNode.next
+//  }
 
 
 module.exports = Node;

@@ -1,7 +1,6 @@
 const Node = require('./Node');
 
 class LinkedList {
-  
   constructor() {
     this.head = null;
   }
@@ -27,15 +26,54 @@ class LinkedList {
     }
   }
 
-  removeHead () {
+  removeHead() {
     const removedHead = this.head;
-    
-    if(!removedHead) return
-    const newHead = this.head.getNextNode()
-    this.head = newHead;
-
+    if (!removedHead) {
+      return;
+    }
+    this.head = removedHead.getNextNode();
     return removedHead.data;
   }
+
+  printList() {
+    let currentNode = this.head;
+    let output = '<head> ';
+    while (currentNode !== null) {
+      output += currentNode.data + ' ';
+      currentNode = currentNode.getNextNode();
+    }
+    output += '<tail>';
+    console.log(output);
+  }
+
+  removeSpecificElement() {
+    // empty LL
+    // not empty
+    // not found
+  }
+
 }
 
 module.exports = LinkedList;
+
+// const listOne = new LinkedList();
+// listOne.addToHead('added first');
+// listOne.addToHead('added second');
+// listOne.addToHead('added third');
+// listOne.addToHead('added fourth');
+
+// console.log(listOne.head);
+
+// const seasons = new LinkedList();
+// seasons.printList();
+
+// seasons.addToHead('summer');
+// seasons.addToHead('spring');
+// seasons.printList();
+
+// seasons.addToTail('fall');
+// seasons.addToTail('winter');
+// seasons.printList();
+
+// seasons.removeHead();
+// seasons.printList();
