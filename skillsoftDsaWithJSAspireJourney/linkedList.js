@@ -5,6 +5,8 @@ class LinkedList {
     this.head = null;
   }
 
+
+
   addToHead(data) {
     const newHead = new Node(data);
     const currentHead = this.head;
@@ -86,15 +88,40 @@ class LinkedList {
 
 }
 
+const nthLastNode = (linkedList, n) => {
+  let tailMarker = linkedList.head;
+  let endChaser = null;
+  let count = 0;
+
+  while(tailMarker){
+    
+    if (count >= n) {
+      if(endChaser === null) {
+        // start off the endchaser from the head position
+        endChaser = linkedList.head
+      }
+
+      endChaser = endChaser.next
+    };
+    tailMarker = tailMarker.next;
+    // console.log(count);
+    count++
+  }
+
+  return endChaser;
+};
 module.exports = LinkedList;
 
-// const listOne = new LinkedList();
-// listOne.addToHead('added first');
-// listOne.addToHead('added second');
-// listOne.addToHead('added third');
-// listOne.addToHead('added fourth');
 
-// console.log(listOne.head);
+const listOne = new LinkedList();
+listOne.addToHead('added first');
+listOne.addToTail('added second');
+listOne.addToTail('added third');
+listOne.addToTail('added fourth');
+
+console.log('head - ', listOne.head.data);
+
+console.log('nth last -> ', nthLastNode(listOne, 2))
 
 // const seasons = new LinkedList();
 // seasons.printList();
@@ -114,7 +141,7 @@ module.exports = LinkedList;
 // seasons.removeSpecificElement('fallow');
 // seasons.printList();
 
-const emptyList = new LinkedList();
-emptyList.printList();
-emptyList.removeSpecificElement('fallow')
-emptyList.printList();
+// const emptyList = new LinkedList();
+// emptyList.printList();
+// emptyList.removeSpecificElement('fallow')
+// emptyList.printList();
