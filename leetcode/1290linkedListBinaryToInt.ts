@@ -1,15 +1,15 @@
 
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
+
+  // Definition for singly-linked list.
+  class ListNode {
+      val: number
+      next: ListNode | null
+      constructor(val?: number, next?: ListNode | null) {
+          this.val = (val===undefined ? 0 : val)
+          this.next = (next===undefined ? null : next)
+      }
+  }
+
 /* 
 1290. Convert Binary Number in a Linked List to Integer
 Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.
@@ -43,6 +43,17 @@ function getDecimalValue(head: ListNode | null): number {
   }
   return binaryToDecimal(str);  
 };
+
+const binToDecDoublingMethod = (head: ListNode | null) => {
+  let accumulator = 0;
+
+  while(head!==null){
+    accumulator=(accumulator*2) + head.val
+    head = head.next
+  }
+  
+  return accumulator;
+}
 
 const binaryToDecimal = (input) => {
   console.log('binaryToDecimal param ', input);
