@@ -86,6 +86,7 @@ class LinkedList {
     }
   }
 
+  
 }
 
 const nthLastNode = (linkedList, n) => {
@@ -110,6 +111,27 @@ const nthLastNode = (linkedList, n) => {
 
   return endChaser;
 };
+
+const findMiddle = linkedList => {
+  let counter = 0;
+  let tailFinder = linkedList.head;
+  let middle = linkedList.head;
+
+  console.log('head at start', tailFinder.data)
+
+  while(tailFinder) {
+    if (counter%2 !== 0){
+      middle= middle.getNextNode();
+    }
+    console.log('m ',middle.data,'c ', counter);
+
+    tailFinder = tailFinder.getNextNode();
+    counter++;
+  }
+
+ return middle
+};
+
 module.exports = LinkedList;
 
 
