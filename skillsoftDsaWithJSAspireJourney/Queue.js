@@ -1,4 +1,4 @@
-const LinkedList = require("./LinkedList");
+const LinkedList = require("./linkedList");
 
 class Queue {
   constructor(maxSize = Infinity) {
