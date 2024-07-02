@@ -135,15 +135,15 @@ const findMiddle = linkedList => {
 module.exports = LinkedList;
 
 
-const listOne = new LinkedList();
-listOne.addToHead('added first');
-listOne.addToTail('added second');
-listOne.addToTail('added third');
-listOne.addToTail('added fourth');
+// const listOne = new LinkedList();
+// listOne.addToHead('added first');
+// listOne.addToTail('added second');
+// listOne.addToTail('added third');
+// listOne.addToTail('added fourth');
 
-console.log('head - ', listOne.head.data);
+// console.log('head - ', listOne.head.data);
 
-console.log('nth last -> ', nthLastNode(listOne, 2))
+// console.log('nth last -> ', nthLastNode(listOne, 2))
 
 // const seasons = new LinkedList();
 // seasons.printList();
