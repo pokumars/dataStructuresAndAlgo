@@ -42,9 +42,21 @@ class HashMap {
         
     }
 
-    retrieve (key){
+retrieve (key){
         const arrayIndex =  this.hash(key);
-        return this.hashmap[arrayIndex];
+        let current = this.hashmap[arrayIndex].head;
+
+        while(current !== null){
+          if(current.data.key === key){
+            return current.data.value;
+          }
+
+
+          current = current.getNextNode();
+        }
+
+        
+        return null
     }
   
 }
@@ -58,6 +70,15 @@ class HashMap {
 // const employees = new HashMap(3);
 // employees.assign('34-567', 'Mara');
 // console.log(employees.hashmap)
-  
+
+const birdCensus =  new HashMap(16);
+birdCensus.assign('mandarin duck','Central Park Pond');
+birdCensus.assign('monk parakeet','Brooklyn College');
+birdCensus.assign('horned owl','Pelham Bay Park');
+
+
+
+
+
 module.exports = HashMap;
   
