@@ -91,7 +91,6 @@ class TreeNode {
 };
 module.exports = TreeNode;
 
-// -----------------------------------------------
 // exercise 1 script
 // const tree = new TreeNode(1);
 
@@ -107,58 +106,57 @@ module.exports = TreeNode;
 // tree.removeChild(node);
 // console.log(tree);
 
-// -----------------------------------------------
-//exercise 2 script - generate tree and pretty print
+/* 
+exercise 2 script - generate tree and pretty print
 
-// const tree2 = new TreeNode(1);
-// const randomize = () => Math.floor(Math.random() * 20);
+const tree2 = new TreeNode(1);
+const randomize = () => Math.floor(Math.random() * 20);
 
-// // add first-level children
-// for (let i = 0; i < 3; i++) {
-//   tree2.addChild(randomize());
-// }
+// add first-level children
+for (let i = 0; i < 3; i++) {
+  tree2.addChild(randomize());
+}
 
-// // add second-level children
-// for (let i = 0; i < 3; i++) {
-//   for (let j = 0; j < 2; j++) {
-//     tree2.children[i].addChild(randomize());
-//   }
-// }
+// add second-level children
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 2; j++) {
+    tree2.children[i].addChild(randomize());
+  }
+}
 
-// // add third-level children
-// for (let i = 0; i < 3; i++) {
-//   for (let j = 0; j < 2; j++) {
-//     for (let k = 0; k < 2; k++) {
-//       tree2.children[i].children[j].addChild(randomize());
-//     }
-//   }
-// }
+// add third-level children
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 2; j++) {
+    for (let k = 0; k < 2; k++) {
+      tree2.children[i].children[j].addChild(randomize());
+    }
+  }
+}
 
-// // pretty-print the tree
-// tree2.print();
+// pretty-print the tree
+tree2.print(); */
 
+/* 
+const tree3 = new TreeNode(15);
+const randomize = () => Math.floor(Math.random() * 20);
 
-// -----------------------------------------------
-// const tree3 = new TreeNode(15);
-// const randomize = () => Math.floor(Math.random() * 20);
+// add first-level children
+for (let i = 0; i < 3; i++) {
+  tree3.addChild(randomize());
+}
 
-// // add first-level children
-// for (let i = 0; i < 3; i++) {
-//   tree3.addChild(randomize());
-// }
+// add second-level children
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 2; j++) {
+    tree3.children[i].addChild(randomize());
+  }
+}
 
-// // add second-level children
-// for (let i = 0; i < 3; i++) {
-//   for (let j = 0; j < 2; j++) {
-//     tree3.children[i].addChild(randomize());
-//   }
-// }
-
-// tree3.print()
-// tree3.depthFirstTraversal()
-
+tree3.print()
+tree3.depthFirstTraversal() */
 
 
+/* 
 const tree4 = new TreeNode(15);
 const randomize = () => Math.floor(Math.random() * 20);
 
@@ -175,4 +173,37 @@ for (let i = 0; i < 3; i++) {
 }
 
 tree4.print();
-tree4.breadthFirstTraversal();
+tree4.breadthFirstTraversal(); */
+
+
+
+const menu = new TreeNode('Menu');
+
+const entries = {
+  'Breakfast' : [ 'Cereal', 'BBQ Chicken', 'Oatmeal' ],
+  'Lunch' : [ 'Soup', 'Sandwich', 'Lasagna' ],
+  'Dinner' : [ 'Yogurt', 'Filet Mignon', 'Fish Florentine' ]
+};
+
+const meals = Object.keys(entries);
+for (let meal=0; meal < meals.length; meal++){
+  menu.addChild(meals[meal]);
+  const entrylist = entries[meals[meal]];
+  entrylist.forEach( entry => {
+    menu.children[meal].addChild(entry);
+  });
+}
+
+menu.print();
+
+menu.children[0].removeChild('BBQ Chicken');
+menu.children[2].removeChild('Yogurt');
+
+menu.children[2].addChild('BBQ Chicken');
+menu.children[0].addChild('Yogurt');
+
+
+console.log('------- Corrected Menu');
+menu.print();
+
+menu.depthFirstTraversal();
